@@ -1,0 +1,238 @@
+* {
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
+}
+
+::selection {
+   background-color: #c266ff;
+}
+
+button,
+input {
+   outline: none;
+   border: none;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+   -webkit-appearance: none;
+   margin: 0;
+}
+
+input[type="number"] {
+   -moz-appearance: textfield;
+}
+
+.game {
+   width: 45%;
+   background: #fff;
+   border: 5px solid rgb(80, 79, 79);
+   padding: 2px;
+   outline: 10px solid rgba(224, 223, 223, 0.89);
+   margin: auto;
+   margin-top: 100px;
+   margin-bottom: 100px;
+   position: relative;
+   overflow: hidden;
+}
+
+.game__header {
+   width: 100%;
+   height: 60px;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   padding: 4px 30px;
+}
+
+.game__header__title {
+   flex: 1;
+   font: 2em Fredoka One;
+   color: rgb(80, 79, 79);
+   z-index: 99;
+}
+
+.game__header__title__icon {
+   font-size: 0.5em;
+   vertical-align: middle;
+}
+
+.game__header__button-start {
+   background: #c266ff;
+   width: 80px;
+   height: 25px;
+   color: #fff;
+   cursor: pointer;
+   font: 1em Arial;
+   font-weight: 900;
+   border-radius: 3px;
+   box-shadow: 3px 3px 1px #fff, 2px 5px 10px #c582f1;
+   text-shadow: 1px 1px 10px grey;
+   transition: all linear 0.3s;
+}
+
+.game__header__number-input {
+   width: 30px;
+   height: 30px;
+   padding: 3px;
+   box-shadow: 2px 2px 10px #c9c1c1;
+   border-radius: 10px;
+   text-align: center;
+   margin-right: 10px;
+   color: #a267ca;
+   font-size: 1.3em;
+}
+
+.game__header__number-input:hover {
+   box-shadow: 2px 2px -10px #c9c1c1;
+}
+
+.game__header__button-reset {
+   margin-left: 20px;
+   background: #bd91e9;
+   width: 80px;
+   height: 25px;
+   color: #fff;
+   cursor: pointer;
+   font: 1em Arial;
+   border-radius: 3px;
+   text-shadow: 1px 1px 10px #808080;
+   transition: all linear 0.3s;
+}
+
+.game__points {
+   width: 50px;
+   text-align: center;
+   color: #c0bbc29a;
+   font: 15em Arial;
+   position: absolute;
+   bottom: -50px;
+   left: -50px;
+   z-index: 9;
+   pointer-events: none;
+}
+
+button:disabled {
+   background: rgb(211, 211, 211);
+   box-shadow: none;
+}
+
+.game__header__button-start:active {
+   box-shadow: none;
+}
+
+.game__interface {
+   width: 100%;
+   padding: 25px 10px;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   gap: 35px;
+   flex-wrap: wrap;
+   transition: all ease 0.4s;
+}
+
+.game__card {
+   width: 100px;
+   height: 100px;
+   border-radius: 5px;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   cursor: pointer;
+   perspective: 200px;
+   background-color: transparent;
+   user-select: none;
+}
+
+.game__card.--active {
+   background: rgb(204, 198, 198);
+}
+
+.game__card .flip-card-inner {
+   position: relative;
+   width: 100%;
+   height: 100%;
+   transition: transform 0.6s;
+   transform-style: preserve-3d;
+   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+   border: 5px solid rgb(80, 79, 79);
+}
+
+.game__card.--active .flip-card-inner {
+   transform: rotateY(180deg);
+}
+
+.flip-card-front,
+.flip-card-back {
+   position: absolute;
+   width: 100%;
+   height: 100%;
+   -webkit-backface-visibility: hidden;
+   backface-visibility: hidden;
+}
+
+.flip-card-front {
+   background-color: #bbbbbb8a;
+   color: #000000;
+}
+
+.flip-card-back {
+   background-color: #c266ff;
+   color: white;
+   transform: rotateY(180deg);
+}
+
+@keyframes stretch {
+   to {
+   }
+}
+
+@keyframes stretch-up {
+   to {
+      height: 0;
+   }
+}
+
+@keyframes pop {
+   from {
+      transform: translateY(0px);
+   }
+
+   to {
+      transform: translateY(-10px);
+   }
+}
+
+@media only screen and (max-width: 1000px) {
+   .game {
+      width: 100%;
+   }
+
+   .game__header__title {
+      font-size: 1.4em;
+   }
+
+   .game__card {
+      width: 50px;
+      height: 50px;
+      border: 5px solid rgba(80, 79, 79, 0.075);
+      z-index: 999;
+   }
+   .game__card .flip-card-inner {
+      border: 2px solid rgba(80, 79, 79, 0.548);
+   }
+   .flip-card-front {
+      border: none;
+   }
+   .game__interface {
+      gap: 30px;
+   }
+
+   .game__points {
+      font-size: 2em;
+      top: 0;
+      left: 0;
+   }
+}

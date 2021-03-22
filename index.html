@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <title>Memory game</title>
+      <meta name="viewport" content="width=device-width,initial-scale=1" />
+      <meta http-equiv="X-Ua-Compatible" content="ie=edge" />
+      <meta charset="UTF-8" />
+      <link rel="stylesheet" href="./index.css" />
+      <link
+         rel="stylesheet"
+         href="https://use.fontawesome.com/releases/v5.15.2/css/all.css"
+         integrity="sha384-vSIIfh2YWi9wW0r9iZe7RJPrKwp6bG+s9QZMoITbCckVJqGCCRhc+ccxNcdpHuYu"
+         crossorigin="anonymous"
+      />
+      <link
+         href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Pacifico&display=swap"
+         rel="stylesheet"
+      />
+   </head>
+   <body>
+      <main class="game">
+         <header class="game__header">
+            <h1 class="game__header__title">
+               Memory Game
+               <i class="game__header__title__icon fa fa-gamepad"></i>
+            </h1>
+            <input
+               id="input-num"
+               class="game__header__number-input"
+               type="number"
+               max="10"
+               min="2"
+               value="4"
+            />
+            <button class="game__header__button-start">START</button>
+            <button class="game__header__button-reset">Reset</button>
+         </header>
+         <h3 class="game__points"></h3>
+
+         <div class="game__interface"></div>
+      </main>
+
+      <script src="./index.js"></script>
+   </body>
+</html>
